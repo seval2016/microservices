@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CarService {
+public class  CarService {
 
     private final CarRepository carRepository;
     private final ModelMapper modelMapper;
@@ -25,6 +25,7 @@ public class CarService {
 
     public List<CarDTO> getAllCars() {
         List<Car> carList =  carRepository.findAll();
+        //Tür dönüşümü yapıyoruz POJO -> DTO
         return carList
                 .stream()
                 .map(this::mapCarToCarDTO)

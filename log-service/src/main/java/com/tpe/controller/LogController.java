@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/log")
 public class LogController {
 
-    @Autowired
+    @Autowired //alternatif olarak yazıldı diğerleri gibi de yapılabilirdi
     private LogService logService;
 
-    @PostMapping
+    @PostMapping // http://localhost:8085/log  + POST + JSON
     public ResponseEntity<String> createLog(@RequestBody AppLogDTO appLogDTO){
         AppLog appLog = new AppLog();
         appLog.setLevel(AppLogLevel.fromString(appLogDTO.getLevel()));
